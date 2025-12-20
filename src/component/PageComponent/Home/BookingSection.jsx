@@ -2,16 +2,16 @@ import React from 'react'
 
 function BookingSection() {
   return (
-    <div className='bg-[#303030]  flex gap-10 p-12'>
+    <div className='bg-[#303030] lg:flex-row flex flex-col  gap-9 lg:p-12 p-9 lg:mx-18 mx-6'>
       <div className='capitalize text-white text-3xl'>Book <br></br>Your Room</div>
-      <div className='text-white grid grid-cols-5 gap-8 items-center'>
+      <div className='text-white grid lg:grid-cols-5 grid-cols-2  gap-8 items-center'>
          <div className='flex flex-col gap-2'>
           <label>Arrival</label>
-          <input type="date" className='border-2 border-[#838181] py-1 px-2 rounded text-[#838181] w-40'/>
+          <input type="date" className='border-2 border-[#838181] py-1 px-2 rounded text-[#838181] bg-transparent  [color-scheme:dark]  w-40'/>
         </div>
    <div className='flex flex-col gap-2'>
           <label>Departure</label>
-          <input type="date" className='border-2 border-[#838181] py-1 px-2 rounded text-[#838181] w-40'/>
+          <input type="date" className='border-2 border-[#838181] py-1 px-2 rounded text-[#838181] w-40 [color-scheme:dark] '/>
         </div>
 
         <div className='flex flex-col gap-2'>
@@ -35,7 +35,7 @@ function BookingSection() {
           </select>
         </div>
       <div>
-         <div className=' relative text-white px-2 py-2 font-semibold rounded  bg-amber-300 hover:bg-amber-500 transition duration-300 ease-in-out w-fit'>Book Now</div>
+         <div className=' relative text-white px-4 py-2.5 font-semibold rounded  bg-amber-400 hover:bg-amber-500 transition duration-300 ease-in-out w-fit shadow-lg hover:shadow-amber-500/40 cursor-pointer'>Book Now</div>
        </div>
       </div>
      </div>

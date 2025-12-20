@@ -1,14 +1,17 @@
 import BannerReuse from '@/component/ui/BannerReuse'
 import React from 'react'
 import banner from '../../../public/hero-bg.jpg'
-import MenuSection from '@/component/PageComponent/Home/MenuSection'
-import AboutSection from '@/component/PageComponent/Home/AboutSection'
+import MenuDetail from '@/component/PageComponent/Menu/MenuDetail'
+import DessertDetail from '@/component/PageComponent/Menu/DessertDetail'
 function page() {
   return (
     <div className='flex flex-col gap-20'>
       <BannerReuse title="Menu" image={banner} />
-      <MenuSection />
-      <AboutSection />
+      
+     
+      <MenuDetail />
+      <DessertDetail />
+     
     </div>
   )
 }

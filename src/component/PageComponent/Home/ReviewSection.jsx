@@ -1,109 +1,96 @@
 'use client'
 import React from 'react'
-import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import userimg from '../../../../public/user.jpg'
+import Image from 'next/image';
 function ReviewSection() {
-  const list=[
-    {
-      name:"Rameshwor Giri",
-      rating:<FaStar/>,
-      comment:"tasty and delicious hjhkskjkuh"
-    },
-     {
-      name:"Raju prassad Giri",
-      rating:<FaStar/>,
-      comment:"tasty and delicious hjhkslid"
-    },
-     {
-      name:"Dilkumar Raj",
-      rating:<FaStar/>,
-      comment:"tasty and delicious jhkksikslkjdl"
-    },
-     {
-      name:"Hemkala Giri",
-      rating:<FaStar/>,
-      comment:"tasty and delicious jhkslikjd"
-    },
-      {
-      name:"Rameshwor Giri",
-      rating:<FaStar/>,
-      comment:"tasty and delicious hjhkskjkuh"
-    },
-     {
-      name:"Raju prassad Giri",
-      rating:<FaStar/>,
-      comment:"tasty and delicious hjhkslid"
-    },
-      {
-      name:"Rameshwor Giri",
-      rating:<FaStar/>,
-      comment:"tasty and delicious hjhkskjkuh"
-    },
-     {
-      name:"Raju prassad Giri",
-      rating:<FaStar/>,
-      comment:"tasty and delicious hjhkslid"
-    },
-  ]
 
-   const responsive = {
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 4,
-      slidesToSlide: 1
+  const list = [
+    {
+      name: "Rameshwor Giri",
+      rating: 5,
+      comment: "Absolutely delicious food with amazing flavors. Highly recommended!",
+      image:userimg
     },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 2,
-      slidesToSlide: 3 
+    {
+      name: "Raju Prasad Giri",
+      rating: 4,
+      comment: "Great taste and quality. The service was also very friendly.",
+      image:userimg
     },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
-      slidesToSlide: 1 
-    }
+    {
+      name: "Dilkumar Raj",
+      rating: 5,
+      comment: "One of the best dining experiences I’ve had. Will visit again!",
+      image:userimg
+    },
+    {
+      name: "Hemkala Giri",
+      rating: 4,
+      comment: "Fresh ingredients and wonderful presentation. Loved it!",
+      image:userimg
+    },
+  ];
+
+  const responsive = {
+    desktop: { breakpoint: { max: 3000, min: 1024 }, items: 3 },
+    tablet: { breakpoint: { max: 1024, min: 464 }, items: 2 },
+    mobile: { breakpoint: { max: 464, min: 0 }, items: 1 }
   };
+
   return (
-    <div className='flex flex-col items-center justify-center bg-[#ebe8e8] gap-12 mb-12 py-12'>
-      <div className='flex flex-col justify-center'>
-      <div className='text-2xl font-semibold'>Customer Review</div>
-      <div className='text-[#3b3b3b]'>See What our customer are saying!</div>
+    <div className="bg-gray-100 py-16 mb-10">
+      <div className="text-center mb-12">
+        <h2 className="text-3xl font-bold text-gray-800">
+          What Our Customers Say
+        </h2>
+        <p className="text-gray-500 mt-2 w-5/12 mx-auto">
+          Real reviews from our valued guests sharing their dining experience and satisfaction.
+        </p>
       </div>
-      <div className='w-full px-13'>
+
+      <div className="px-6">
         <Carousel
-            swipeable={false}
-            draggable={false}
-            showDots={false}
-            responsive={responsive}
-            arrows={false}
-            infinite={true}
-            
-      
-            autoPlay={true}
-            autoPlaySpeed={1000}
-            keyBoardControl
-            customTransition
-            transitionDuration={10}
-            containerClass="carousel-container"
-            >
-        {
-          list.map((val,i)=>{
-return(
-  <div key={i} className='flex flex-col '>
-    <div className='flex gap-2 items-center'>
-    <div className='text-xl font-semibold'>{val.name}</div>
-    <div className='text-yellow-500'>{val.rating}</div>
-    </div>
-<div>{val.comment}</div>
-    </div>
-)
-          })
-        }
-         </Carousel>
+          responsive={responsive}
+          infinite
+          autoPlay
+          autoPlaySpeed={3000}
+          arrows={false}
+        >
+          {list.map((val, i) => (
+            <div key={i} className="px-3">
+              <div className="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 h-full">
+                
+              
+                <div className="flex gap-1 text-yellow-400 mb-3">
+                  {Array(val.rating)
+                    .fill(0)
+                    .map((a, i) => (
+                      <FaStar key={i} />
+                    ))}
+                </div>
+                <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                  “{val.comment}”
+                </p>
+<div className='flex items-center gap-4'>
+                 <Image src={val.image} alt='' className='h-15 w-15 object-cover rounded-full' />
+
+                <h4 className="text-lg font-semibold text-gray-800">
+                  {val.name}
+                </h4>
+</div>
+               
+
+               
+              </div>
+            </div>
+          ))}
+        </Carousel>
       </div>
     </div>
-  )
+  );
 }
 
-export default ReviewSection
+export default ReviewSection;

@@ -8,73 +8,61 @@ import RoomSection from '@/component/PageComponent/Home/RoomSection'
 import React from 'react'
 import { motion } from 'framer-motion'
 import ReviewSection from '@/component/PageComponent/Home/ReviewSection'
+import BlogSection from '@/component/PageComponent/Home/BlogSection'
 
-const container={
-  hidden:{},
-  show:{
-    transition:{
-      staggerChildren:1.5
-    }
-  }
-};
-const item={
-  hidden:{opacity:0,y:30},
-  show:{
-    opacity:1,
-    y:0,
-    transition:{duration:0.8}
-  }
-}
+// const container={
+//   hidden:{},
+//   show:{
+//     transition:{
+//       staggerChildren:1.5
+//     }
+//   }
+// };
+// const item={
+//   hidden:{opacity:0,y:30},
+//   show:{
+//     opacity:1,
+//     y:0,
+//     transition:{duration:0.8}
+//   }
+// }
 function page() {
   return (
-    <motion.div
-    variants={container}
-      initial='hidden'
-    animate='show'
-    className='flex flex-col gap-20 px-18'>
-      <motion.div 
-      variants={item}
-      >
+    <div className='flex flex-col lg:gap-20 gap-10 '>
+      <div>
         <HomeSection />
-      </motion.div>
+      </div>
+      <div>
+        <BookingSection />
+      </div>
 
-       <motion.div 
-       variants={item}
-      >
-      <BookingSection />
-      </motion.div>
-
-       <motion.div 
-      variants={item}
-      >
+       <div>
       <AboutSection />
-      </motion.div>
+      </div>
 
-       <motion.div 
-       variants={item}
-      >
+       <div>
       <RoomSection />
-      </motion.div>
+      </div>
 
-       <motion.div 
-      variants={item}
-      >
+       <div>
               <MenuSection />
-      </motion.div>
+      </div>
 
-       <motion.div 
-       variants={item}
+       <div 
+       
       >
               <FeatureSection />
-      </motion.div>
+      </div>
 
-      <motion.div 
-       variants={item}
-      >
+      <div>
+              <BlogSection />
+      </div>
+
+      <div>
       <ReviewSection />
-      </motion.div>
-      
-    </motion.div>
+      </div>
+
+    </div>
   )
 }
 

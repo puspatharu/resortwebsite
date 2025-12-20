@@ -2,6 +2,9 @@
 import { Formik,Form, Field, ErrorMessage } from 'formik'
  import React from 'react'
 import * as Yup from 'yup'
+import { CiHome } from "react-icons/ci";
+import { FaPhone } from "react-icons/fa6";
+import { MdOutlineEmail } from "react-icons/md";
 function ContactSection() {
   const form=[
     {title:"username",type:"text" },
@@ -25,8 +28,39 @@ function ContactSection() {
       // .max(500, "Message cannot exceed 500 characters"),
     })
   return (
-<div className=' py-10 flex flex-col items-center gap-6'>
-<div className='text-2xl font-semibold'>Contact Us</div>
+<div className='flex flex-col gap-6 lg:px-18 px-6'>
+<div className='text-2xl font-semibold text-center'>Contact Us</div>
+<div className='lg:flex-row flex flex-col  gap-14 lg:gap-8'>
+
+  <div className='flex flex-col gap-5 px-4'>
+        <div className='flex gap-5'>
+          <div className=''>
+            <CiHome className='text-amber-400 hover:text-amber-500' />
+          </div>
+          <div className='flex flex-col'>
+            <h1 className='text-[18px] font-semibold text-amber-400 hover:text-amber-500'>SainaMaina-1,Ranibagiya</h1>
+            <p className='text-gray-700'>4343 tinkunechowk</p>
+          </div>
+        </div>
+        <div className='flex gap-5'>
+          <div>
+            <FaPhone className='text-amber-400 hover:text-amber-500' />
+          </div>
+          <div>
+            <h1  className='text-[18px] font-semibold text-amber-400 hover:text-amber-500'>9803456723</h1>
+            <p className='text-gray-700'>Sun to Sat 7am to 7pm</p>
+          </div>
+        </div>
+             <div className='flex gap-5'>
+          <div>
+           <MdOutlineEmail  className='text-amber-400 hover:text-amber-500'/>
+          </div>
+          <div>
+            <h1  className='text-[18px] font-semibold text-amber-400 hover:text-amber-500'>abc@gmail.com</h1>
+            <p  className='text-gray-700'>Send us your query anytime</p>
+          </div>
+        </div>
+      </div>
   <Formik initialValues={{
   username:'',
 email:"",
@@ -42,8 +76,8 @@ onSubmit={(values)=>{
     >
 {({})=>{
   return(
-  <Form className=' flex flex-col shadow-md py-4 bg-[#fbfbfb]  px-6 gap-6 '>
-    
+  <Form className=' flex flex-col  shadow-md py-4 bg-[#fbfbfb]  px-6 gap-6 '>
+    <div className='lg:flex-row flex flex-col gap-7'>
     <div className='flex flex-col gap-3'>
     {
       form.map((val,i)=>{
@@ -60,21 +94,25 @@ return(
       })
     }
     </div>
+
     <div className='flex flex-col gap-1'>
     <label htmlFor="message" className='text-base font-semibold capitalize'>Message</label>
 <Field
   as="textarea"
   name="message"
   placeholder="message"
-  className="border px-4 py-2 text-[12px] font-semibold w-82 border-gray-500 outline-none"
+  className="border px-4 py-2 h-full text-[12px] font-semibold w-82 border-gray-500 outline-none"
 />
 
     </div>
-   <button className=' text-white px-4 py-2 font-semibold rounded  bg-amber-300 hover:bg-amber-500 transition duration-300 ease-in-out ' type='submit'>Submit</button>
+    </div>
+
+   <button className=' text-white px-4 py-2 font-semibold rounded  bg-amber-400 hover:bg-amber-500 transition duration-300 ease-in-out w-fit ' type='submit'>Submit</button>
   </Form>
   )
 }}
 </Formik>
+</div>
 </div>
   )
 }

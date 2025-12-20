@@ -49,10 +49,12 @@ image:fishfry
   ]
   return (
 
-<div>
-  <Image src={page} alt='image' className='h-lvh w-full absolute left-0 right-0 object-cover' />
-  <div className='h-lvh w-full absolute left-0 right-0 opacity-80 bg-black'></div>
-  <div className='flex flex-col gap-8 py-13'>
+<div className='lg:px-18 px-6'>
+  <Image src={page} alt='image' className='lg:h-lvh h-[800px] w-full absolute left-0 right-0 object-cover'/>
+
+  <div className='lg:h-lvh h-[800px] w-full absolute left-0 right-0 opacity-80 bg-black'></div>
+
+  <div className='flex flex-col lg:gap-8 gap-4 py-14'>
   <div className='relative  flex items-center text-white flex-col'>
 <div className='text-4xl font-medium'>Menu List that we salve</div>
 <div className='text-center text-gray-300'>Explore our freshly prepared meals,crafted with rich flavors and premiun ingredients to satisfy every craving</div>
@@ -67,15 +69,14 @@ image:fishfry
    menu.map((val,i)=>{
 return(
   <div key={i} className='flex gap-6 item-center'>
-    <div>
+    <div className='h-20 w-20 rounded-full'>
     <Image
   src={val.image}
-  alt="Chicken Fry"
-  width={90}
-  height={90}
-  className='relative rounded-full object-cover'
+  alt=""
+  className='relative object-cover rounded-full h-18  w-18'
 />
     </div>
+    
     <div className='flex flex-col'>
     <div className='flex gap-7'>
  <div className='text-xl font-semibold text-white'>{val.name}</div>

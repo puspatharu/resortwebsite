@@ -1,83 +1,130 @@
 'use client'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
-import { IoMdSearch } from "react-icons/io";
-import { motion } from 'framer-motion';
+import { RxCross2 } from "react-icons/rx";
+import { GiHamburgerMenu } from "react-icons/gi";
 function Toolbar() {
-  const [isScrolled,setIsScrolled]=useState(false);
-
-  useEffect(()=>{
-    const handleScroll=()=>{
-      setIsScrolled(window.scrollY > 50);
+  const [isScrolled, setIsScrolled] = useState(false)
+const [menuOpen,setMenuOpen]=useState(false)
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50)
     }
-  window.addEventListener('scroll',handleScroll);
-  return ()=>window.removeEventListener('scroll',handleScroll);
-  },[]);
-  const nav=[
-    {
-      name:"home",
-      link:'/'
-    },
-       {
-      name:"about",
-      link:'/about'
-    },
- {
-      name:"menu",
-      link:'/menu'
-    },
-     {
-      name:"team",
-      link:'/team'
-    },
-     
- {
-      name:"contact",
-      link:'/contact'
-    },
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  const nav = [
+    { name: 'home', link: '/' },
+    { name: 'about', link: '/about' },
+    { name: 'menu', link: '/menu' },
+     { name: 'room', link: '/room' },
+    { name: 'gallery', link: '/gallery' },
+    { name: 'contact', link: '/contact' },
   ]
-  return (
-    <motion.div
-    initial={{opacity:0,y:-20 }}
-animate={{opacity:1,y:0,
-  backgroundColor:isScrolled ? '#ffffff':'rgba(0,0,0,0)',
-   boxShadow: isScrolled ? "0 4px 10px rgba(0,0,0,0.15)" : "0 0 0 rgba(0,0,0,0)",
-}}
- transition={{ duration: 0.5, ease: "easeOut" }}
-     className='flex py-5 justify-between fixed z-50 top-0 left-0  w-full h-fit '>
 
-      <motion.div 
-      animate={{color:isScrolled ? "#000000" : "#ffffff"}}
-       transition={{ duration: 0.4 }}
-      className='px-5 text-4xl font-serif'>
+  return (
+    <div
+      className={`
+        fixed top-0 left-0 z-50 w-full
+        flex justify-between py-5
+        transition-all duration-500 ease-out
+        ${isScrolled 
+          ? 'bg-white shadow-lg' 
+          : 'bg-[rgba(12,12,12,0.4)]'}
+      `}
+    >
+      {/* Logo */}
+      <div
+        className={`
+          pl-16 text-4xl font-serif
+          transition-colors duration-400
+          ${isScrolled ? 'text-black' : 'text-white'}
+        `}
+      >
         Resort
-      </motion.div>
-      <div className='flex capitalize gap-4 items-center'>
-    {
-      nav.map((val,i)=>{
-        return(
+      </div>
+
+     
+      <div className="lg:flex hidden capitalize gap-4 items-center">
+        {nav.map((val, i) => (
           <Link href={val.link} key={i}>
-            <motion.div 
-            animate={{ color: isScrolled ? "#000000" : "#ffffff" }}
-              transition={{ duration: 0.4 }}
-              className="font-semibold cursor-pointer">{val.name}</motion.div>
+            <div
+              className={`
+                font-semibold cursor-pointer
+                transition-colors duration-400
+                ${isScrolled ? 'text-black' : 'text-white'}
+              `}
+            >
+              {val.name}
+            </div>
           </Link>
-        )
-      })
-    }
+        ))}
       </div>
-      <div className='flex items-center gap-2 px-5'>
-<motion.div
-  animate={{ color: isScrolled ? "#000000" : "#ffffff" }}
-          transition={{ duration: 0.4 }} >
-  <IoMdSearch />
-</motion.div>
-<motion.div
- animate={{ color: isScrolled ? "#000000" : "#ffffff" }}
-          transition={{ duration: 0.4 }}
->Login</motion.div>
+      {/* Menu icon */}
+        <div className={` lg:hidden cursor-pointer ${isScrolled ? "text-black":'text-white'}`} onClick={()=> setMenuOpen(!menuOpen)}>
+{
+  menuOpen ? <RxCross2 /> : <GiHamburgerMenu />
+}
+        </div>
+
+        {
+          menuOpen && (
+
+            <div className='fixed flex flex-col top-19 right-25 '>
+{
+  nav.map((val,i)=>{
+    return(
+<div key={i}>
+  <Link href={val.link} onClick={()=>setMenuOpen(false)}>
+  <div  className={`
+                font-semibold hover:underline cursor-pointer
+                transition-colors duration-400
+                ${isScrolled ? 'text-black' : 'text-white'}
+              `}>
+ {val.name}
+  </div>
+  </Link>
+</div>
+    )
+   
+  })
+}
+ <button
+          className={`
+               px-4 py-1.5 rounded-full font-medium
+    bg-amber-400 text-black
+    hover:bg-amber-500
+    transition-all duration-300
+    shadow-md hover:shadow-amber-500/40
+            ${isScrolled ? 'text-black' : 'text-white'}
+          `}
+        >
+          Book Now
+        </button>
+            </div>
+          )
+        }
+
+      {/* Button */}
+      <div className="flex items-center pr-16">
+       <button
+          className={`lg:flex hidden 
+               px-4 py-1.5 rounded-full font-medium
+    bg-amber-400 text-black
+    hover:bg-amber-500
+    transition-all duration-300
+    shadow-md hover:shadow-amber-500/40
+            ${isScrolled ? 'text-black' : 'text-white'}
+          `}
+        >
+          Book Now
+        </button>
+
+
+
       </div>
-    </motion.div>
+    </div>
   )
 }
 
