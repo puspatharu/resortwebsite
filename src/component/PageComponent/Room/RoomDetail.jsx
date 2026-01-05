@@ -4,6 +4,7 @@ import room2 from '../../../../public/room2.webp'
 import room3 from '../../../../public/room3.webp'
 import room4 from '../../../../public/room4.webp'
 import Image from 'next/image'
+import { motion } from 'framer-motion'
 const room=[
   {
     image:room1,
@@ -66,24 +67,55 @@ const room=[
     bedtype:"double bed"
   },
 ]
+
+ const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      delayChildren: 0.3,
+      staggerChildren: 0.6,
+    },
+  },
+}
+
+const item = {
+  hidden: { opacity: 0, y: 30 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: "easeOut" },
+  },
+}
 function RoomDetail() {
   return (
-        <div className='flex flex-col gap-16 lg:px-18 px-6'>
-          <div className='flex items-center flex-col'>
-          <div
-          className='text-2xl font-semibold '>Hotel Accommodation</div>
-          <div
-         
-          className='text-base text-gray-400'>We all live in an age that belongs to the young at heart.Life that is becoming extremely fast,</div>
-          </div>
+        <div className='flex flex-col gap-16 lg:px-18 px-6 pb-20'>
+          <motion.div
+           variants={container}
+        initial="hidden"
+         whileInView="show"
+        viewport={{ once: true }}
+          className='flex items-center flex-col'>
+          <motion.div
+          variants={item}
+          className='text-2xl font-semibold '>Hotel Accommodation</motion.div>
+          <motion.div
+         variants={item}
+          className='text-base text-gray-400'>We all live in an age that belongs to the young at heart.Life that is becoming extremely fast,</motion.div>
+          </motion.div>
     
-          <div
-          
+          <motion.div
+          variants={container}
+          initial='hidden'
+          whileInView='show'
+           viewport={{ once: true }}
           className='grid lg:grid-cols-3 gap-9 grid-cols-1 '>
     {
       room.map((val,i)=>{
     return(
-      <div key={i} className='flex flex-col gap-4 shadow-md px-6 py-6'>
+      <motion.div
+       variants={item}
+      key={i} className='flex flex-col gap-4 shadow-md px-6 py-6'>
     <div className='relative overflow-hidden h-full w-full'>
        <Image src={val.image} alt='image' className='transition-transform duration-500 hover:scale-110 overflow-clip h-full w-full' />
         <button className='text-white  bg-amber-400 hover:bg-amber-500 transition duration-300 bottom-5 left-4 ease-in-out px-3 py-1.5 absolute rounded'>Book Now</button>
@@ -91,17 +123,17 @@ function RoomDetail() {
         <div className='flex flex-col gap-2'>
         <div className='text-xl font-semibold'>{val.name}</div>
         <div className='text-[#52c5fd] '> <span className='text-xl font-semibold'>${val.prize}</span>/night</div>
-        <div className='text-[#727070]'>Adults:<span className='text-[#969696]'>{val.adults}</span></div>
-        <div className='text-[#727070]'>Categories:<span className='text-[#969696]'>{val.categories}</span></div>
-        <div className='text-[#727070]'>Facilities:<span className='text-[#969696]'>{val.facilities}</span></div>
-        <div className='text-[#727070]'>Size:<span className='text-[#969696]'>{val.size}</span>m</div>
-        <div className='text-[#727070]'>Bed Type:<span className='text-[#969696]'>{val.bedtype}</span></div>
+        <div className='text-[#3d3c3c]'>Adults:<span className='text-[#969696]'>{val.adults}</span></div>
+        <div className='text-[#3d3c3c]'>Categories:<span className='text-[#969696]'>{val.categories}</span></div>
+        <div className='text-[#3d3c3c]'>Facilities:<span className='text-[#969696]'>{val.facilities}</span></div>
+        <div className='text-[#3d3c3c]'>Size:<span className='text-[#969696]'>{val.size}</span>m</div>
+        <div className='text-[#3d3c3c]'>Bed Type:<span className='text-[#969696]'>{val.bedtype}</span></div>
         </div>
-        </div>
+        </motion.div>
     )
       })
     }
-          </div>
+          </motion.div>
     
         </div>
   )

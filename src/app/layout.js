@@ -38,7 +38,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={poppins.className}>
-        <Toolbar />   
+        <Toolbar />
         {children}
         <Footersection />
       </body>

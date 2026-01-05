@@ -41,7 +41,7 @@ function ReviewSection() {
   };
 
   return (
-    <div className="bg-gray-100 py-16 mb-10">
+    <div className="bg-gray-100 px-12 py-16 mb-10">
       <div className="text-center mb-12">
         <h2 className="text-3xl font-bold text-gray-800">
           What Our Customers Say

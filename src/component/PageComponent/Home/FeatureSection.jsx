@@ -3,8 +3,27 @@ import { IoRestaurant,IoCarSport } from "react-icons/io5";
 import { TbMassage } from "react-icons/tb";
 import { GiBeech } from "react-icons/gi";
 import { FaGlassMartini,FaSwimmingPool } from "react-icons/fa";
-import userimg from '../../../../public/user.jpg'
+import { motion } from 'framer-motion'
 function FeatureSection() {
+  const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      delayChildren: 0.3,
+      staggerChildren: 0.4,
+    },
+  },
+}
+
+const item = {
+  hidden: { opacity: 0, y: 30 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: "easeOut" },
+  },
+}
   const facility=[
     {
       logo:<IoRestaurant />,
@@ -38,16 +57,26 @@ function FeatureSection() {
     },
   ]
   return (
-    <div className='flex flex-col gap-12 lg:px-18 px-6'>
-      <div className='flex items-center flex-col'>
-       <div className='text-2xl font-semibold'>Royal Facilities</div> 
-       <div className='text-base text-gray-400'>Who are in extremely love with eco friendly system</div>
-      </div>
-<div className=' gap-10  grid lg:grid-cols-3 grid-cols-1'>
+    <div className='flex flex-col gap-12 lg:px-18  px-6'>
+      <motion.div 
+      variants={container}
+      initial='hidden'
+whileInView='show'
+viewport={{once:true}}
+      className='flex items-center flex-col'>
+       <motion.div variants={item} className='text-2xl font-semibold'>Royal Facilities</motion.div> 
+       <motion.div variants={item} className='text-base text-gray-400'>Who are in extremely love with eco friendly system</motion.div>
+      </motion.div>
+<motion.div 
+variants={container}
+initial="hidden"
+whileInView='show'
+viewport={{once:true}}
+className=' gap-10  grid lg:grid-cols-3 grid-cols-1'>
   {
     facility.map((val,i)=>{
 return(
-      <div key={i} className=' bg-white flex flex-col gap-2   p-6 shadow-md hover:shadow-xl rounded-2xl transition-all duration-300'>
+      <motion.div variants={item} key={i} className=' bg-white flex flex-col gap-2   p-6 shadow-md hover:shadow-xl hover:translate-y-1.5 rounded-2xl  transition-all duration-300 '>
           <div className="flex items-center gap-4 mb-4">
    
         <div className="h-10 w-10 flex items-center justify-center rounded-full bg-sky-100 text-sky-500 text-xl hover:bg-sky-500 hover:text-white transition-all duration-300">
@@ -63,11 +92,11 @@ return(
       <p className="text-gray-500 text-[15px] leading-relaxed">
         {val.paragraph}
       </p>
-      </div>
+      </motion.div>
 )
     })
   }
-</div>
+</motion.div>
     </div>
   )
 }

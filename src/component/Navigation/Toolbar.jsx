@@ -27,7 +27,7 @@ const [menuOpen,setMenuOpen]=useState(false)
     <div
       className={`
         fixed top-0 left-0 z-50 w-full
-        flex justify-between py-5
+        flex justify-between py-5 tracking-wide
         transition-all duration-500 ease-out
         ${isScrolled 
           ? 'bg-white shadow-lg' 
@@ -78,7 +78,7 @@ const [menuOpen,setMenuOpen]=useState(false)
 <div key={i}>
   <Link href={val.link} onClick={()=>setMenuOpen(false)}>
   <div  className={`
-                font-semibold hover:underline cursor-pointer
+                font-semibold tracking-wider hover:underline cursor-pointer
                 transition-colors duration-400
                 ${isScrolled ? 'text-black' : 'text-white'}
               `}>
@@ -92,8 +92,8 @@ const [menuOpen,setMenuOpen]=useState(false)
 }
  <button
           className={`
-               px-4 py-1.5 rounded-full font-medium
-    bg-amber-400 text-black
+               px-4 py-1.5 rounded-full 
+    bg-amber-400 
     hover:bg-amber-500
     transition-all duration-300
     shadow-md hover:shadow-amber-500/40

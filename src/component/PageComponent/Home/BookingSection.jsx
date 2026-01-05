@@ -1,45 +1,108 @@
-import React from 'react'
-
+import React from "react";
+import { motion } from "framer-motion";
 function BookingSection() {
-  return (
-    <div className='bg-[#303030] lg:flex-row flex flex-col  gap-9 lg:p-12 p-9 lg:mx-18 mx-6'>
-      <div className='capitalize text-white text-3xl'>Book <br></br>Your Room</div>
-      <div className='text-white grid lg:grid-cols-5 grid-cols-2  gap-8 items-center'>
-         <div className='flex flex-col gap-2'>
-          <label>Arrival</label>
-          <input type="date" className='border-2 border-[#838181] py-1 px-2 rounded text-[#838181] bg-transparent  [color-scheme:dark]  w-40'/>
-        </div>
-   <div className='flex flex-col gap-2'>
-          <label>Departure</label>
-          <input type="date" className='border-2 border-[#838181] py-1 px-2 rounded text-[#838181] w-40 [color-scheme:dark] '/>
-        </div>
-
-        <div className='flex flex-col gap-2'>
-        <label>Room type</label>
-        <select className='border-2 border-[#838181] py-1 px-2 rounded text-[#838181] w-40'>
-          <option>Single Room</option>
-          <option>Double Room</option>
-          <option>Deluxe Room</option>
-        </select>
-        </div>
-        
- 
-
-     
-        <div className='flex flex-col gap-2'>
-          <label>Adult</label>
-          <select className='border-2 border-[#838181] py-1 px-2 rounded text-[#838181] w-40'>
-            <option>1</option>
-            <option>2</option>
-             <option>3</option>
-          </select>
-        </div>
-      <div>
-         <div className=' relative text-white px-4 py-2.5 font-semibold rounded  bg-amber-400 hover:bg-amber-500 transition duration-300 ease-in-out w-fit shadow-lg hover:shadow-amber-500/40 cursor-pointer'>Book Now</div>
-       </div>
-      </div>
-     </div>
-  )
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      delayChildren: 0.3,
+      staggerChildren: 0.2,
+    },
+  },
 }
 
-export default BookingSection
+const item = {
+  hidden: { opacity: 0, y: 30 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: "easeOut" },
+  },
+}
+
+  return (
+    <motion.div
+    variants={container}
+    initial="hidden"
+    whileInView='show'
+    viewport={{once:true}}
+    className="px-6 -mt-6 lg:px-20 ">
+      <div className="bg-[#2b2b2b] rounded-3xl shadow-2xl p-8 lg:p-12 max-w-7xl mx-auto">
+
+      
+          <motion.h3 
+          variants={item}
+          className="text-center text-white text-2xl lg:text-3xl font-semibold mb-10">
+          Book Your Luxury Stay
+        </motion.h3>
+
+       
+        <motion.div
+        variants={container}
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 items-end">
+
+         
+          <motion.div
+          variants={item}
+          className="flex flex-col gap-2 text-white">
+            <label className="text-sm text-gray-300">Arrival</label>
+            <input
+              type="date"
+              className="rounded-lg bg-transparent border border-gray-500 px-4 py-2 text-gray-200 focus:border-amber-400 focus:outline-none [color-scheme:dark]"
+            />
+          </motion.div>
+
+         
+          <motion.div
+          variants={item}
+          className="flex flex-col gap-2 text-white">
+            <label className="text-sm text-gray-300">Departure</label>
+            <input
+              type="date"
+              className="rounded-lg bg-transparent border border-gray-500 px-4 py-2 text-gray-200 focus:border-amber-400 focus:outline-none [color-scheme:dark]"
+            />
+          </motion.div>
+
+        
+          <motion.div variants={item} className="flex flex-col gap-2 text-white">
+            <label className="text-sm text-gray-300">Room Type</label>
+            <select 
+            className="rounded-lg bg-[#2b2b2b] border border-gray-500 px-4 py-2 text-gray-200 focus:border-amber-400 focus:outline-none">
+              <option value=''>Select</option>
+              <option value='Single Room'>Single Room</option>
+              <option value='Double Room'>Double Room</option>
+              <option value='Deluxe Room'>Deluxe Room</option>
+            </select>
+          </motion.div>
+
+        
+          <motion.div variants={item} className="flex flex-col gap-2 text-white">
+            <label className="text-sm text-gray-300">Adults</label>
+            <select 
+            defaultValue=''
+            className="rounded-lg bg-[#2b2b2b] border border-gray-500 px-4 py-2 text-gray-200 focus:border-amber-400 focus:outline-none">
+               <option value="" disabled>
+    Select adults
+  </option>
+              <option value='1'>1</option>
+              <option value="2">2</option>
+              <option value='3'>3</option>
+              <option value='4'>4+</option>
+            </select>
+          </motion.div>
+
+        
+          <div className="flex">
+            <button className="w-full rounded-full bg-amber-400 px-8 py-3 font-semibold text-white shadow-lg transition-all duration-300 hover:bg-amber-500 hover:shadow-amber-500/40">
+              Book Now
+            </button>
+          </div>
+
+        </motion.div>
+      </div>
+    </motion.div>
+  );
+}
+
+export default BookingSection;
