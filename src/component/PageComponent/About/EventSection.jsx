@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import wedding from '../../../../public/marriage.jpg'
 import lunch from '../../../../public/party.jpg'
@@ -5,33 +6,42 @@ import party from '../../../../public/birthday.jpg'
 import birthday from '../../../../public/birth.jpg'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 function EventSection() {
  const event = [
   {
     title: "Wedding",
+    slug:'Wed-ding',
     image: wedding,
+    imagekey:'wedding',
     description: "Beautifully planned wedding ceremonies with elegant , delicious food, and unforgettable moments for your special day.Beautifully planned wedding ceremonies with elegant , delicious food, and unforgettable moments for your special day."
   },
   {
     title: "Breakfast",
     image: lunch,
+     imagekey:'lunch',
+     slug:'Break-fast',
     description: "Professional event setup for product and business launches, designed to impress guests and create a strong first impression.Professional event setup for product and business launches, designed to impress guests and create a strong first impression."
   },
   {
     title: "Birthday",
     image: birthday,
+     imagekey:'birthday',
+     slug:'Birth-day',
     description: "Fun and memorable birthday celebrations with customized themes, tasty menus, and joyful arrangements for all ages.Fun and memorable birthday celebrations with customized themes, tasty menus, and joyful arrangements for all ages."
   },
   {
     title: "Party",
+     slug:'Par-ty',
     image: party,
+     imagekey:'party',
     description: "Lively party events with great ambiance, music, and food, perfect for private gatherings and special celebrations.Lively party events with great ambiance, music, and food, perfect for private gatherings and special celebrations"
   },
 ];
   return (
-    <div className='px-6 lg:px-20'>
+    <div className='px-6 lg:px-20 lg:py-12 py-16'>
         <div className="text-center mb-12">
-        <h1 className="text-4xl font-semibold">Events</h1>
+        <h1 className="text-4xl font-semibold ">Events</h1>
         <p className="text-gray-500 mt-2">
           We organize events that create lasting memories
         </p>
@@ -57,9 +67,13 @@ viewport={{once:true}}
      initial={{ opacity: 0, x: i % 2 === 0 ? 50 : -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-    className={i % 2 === 0 ? "order-2" : "order-1 "}>
-        <h2 className="text-2xl font-semibold mb-2">{val.title}</h2>
+    className={`${i % 2 === 0 ? "order-2" : "order-1 "} flex flex-col gap-6`}>
+        <h2 className="text-2xl font-semibold">{val.title}</h2>
         <p className="text-gray-600">{val.description}</p>
+     <Link href={`/event/${val.slug}`}>
+        <button className='text-white  bg-amber-400 hover:bg-amber-500 transition duration-300 bottom-5 left-4 ease-in-out px-3 py-2  rounded w-fit'>View Detail</button>
+     </Link>
+     
       </motion.div>
   </motion.div>
 )

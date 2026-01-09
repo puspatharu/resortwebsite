@@ -66,8 +66,10 @@ const item = {
       <motion.div
        variants={container}
       className='flex gap-7'>
+        <Link href='/contact'>
      <div
-    className=' relative text-white px-6 py-3 font-semibold rounded-full  bg-amber-400 hover:bg-amber-500 transition-all duration-300 ease-in-out shadow-lg hover:shadow-amber-500/40 cursor-pointer'>GET STARTED</div>
+    className=' relative text-white px-6 py-3 font-semibold rounded-full  bg-amber-400 hover:bg-amber-500 transition-all duration-300 ease-in-out shadow-lg hover:shadow-amber-500/40 cursor-pointer'>Contact us</div>
+        </Link>
      <Link href='/singlehome'
     className='group flex items-center gap-3 px-5.5 py-2.5 text-white font-semibold border border-white/60 rounded-full cursor-pointer  hover:bg-white hover:text-black transition-all duration-300'>
               <span>Explore More</span>

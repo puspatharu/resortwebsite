@@ -4,7 +4,7 @@ import banner from '../../../public/hero-bg.jpg'
 import GallerySection from '@/component/PageComponent/Gallery/GallerySection'
 function page() {
   return (
-    <div>
+    <div className='flex flex-col gap-18'>
       <BannerReuse title="Gallery" image={banner} />
       <GallerySection />
     </div>

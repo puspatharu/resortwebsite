@@ -28,7 +28,7 @@ function ContactSection() {
       // .max(500, "Message cannot exceed 500 characters"),
     })
   return (
-<div className='flex flex-col gap-6 lg:px-18 px-6'>
+<div className='flex flex-col gap-6 lg:px-18  px-6'>
 <div className='text-2xl font-semibold text-center'>Contact Us</div>
 <div className='lg:flex-row flex flex-col  gap-14 lg:gap-8'>
 
@@ -84,7 +84,7 @@ onSubmit={(values)=>{
 return(
   <div key={i} className='flex flex-col gap-1'>
 <label htmlFor={val.title} className='text-base font-semibold capitalize'>{val.title}</label>
-<Field className="border px-4 py-2 text-[12px] font-semibold w-82 border-gray-500 outline-none " placeholder={val.title}  name={val.title} type={val.type}/>
+<Field className="border px-4 py-2 text-[12px] font-semibold rounded w-82 border-gray-500 outline-none " placeholder={val.title}  name={val.title} type={val.type}/>
 
 
 <ErrorMessage className='text-red-700' component={'span'} name={val.title} />
@@ -101,7 +101,7 @@ return(
   as="textarea"
   name="message"
   placeholder="message"
-  className="border px-4 py-2 h-full text-[12px] font-semibold w-82 border-gray-500 outline-none"
+  className="border px-4 py-2 h-full text-[12px] font-semibold w-82 rounded border-gray-500 outline-none"
 />
 
     </div>

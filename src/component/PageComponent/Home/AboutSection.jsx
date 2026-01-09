@@ -4,6 +4,7 @@ import Image from "next/image";
 import Aboutimg from "../../../../public/about_bg.jpg.webp";
 import blogimg from "../../../../public/blog3.jpg";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 function AboutSection() {
 const container = {
@@ -55,10 +56,11 @@ const item = {
             With premium rooms, modern amenities, and a welcoming atmosphere,
             we create the ideal setting for relaxation and memorable stays.
           </motion.p>
-
+<Link href='/about/singleabout'>
           <button className="mt-4 w-fit rounded-full bg-amber-400 px-8 py-3 text-white font-semibold shadow-md transition-all duration-300 hover:bg-amber-500 hover:shadow-amber-500/40">
             Request Custom Price
           </button>
+</Link>
         </motion.div>
 
       
@@ -72,8 +74,6 @@ const item = {
               className="rounded-2xl"
             />
           </motion.div>
-          
-
           <motion.div 
           variants={item}
           className="absolute -bottom-10 -left-10 hidden lg:flex overflow-hidden rounded-xl  shadow-xl border-4 border-white">

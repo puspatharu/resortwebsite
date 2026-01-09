@@ -18,7 +18,7 @@ function GallerySection() {
   "/about_bg.jpg.webp",
 ];
   return (
-    <div className='py-13 px-4 lg:px-20'>
+    <div className=' px-4 pb-12 lg:px-20'>
      <div className='text-center'>
 <div className='text-3xl font-semibold'>Our Gallery</div>
 <div className="text-gray-500 mt-2">Explore moment from our resort</div>

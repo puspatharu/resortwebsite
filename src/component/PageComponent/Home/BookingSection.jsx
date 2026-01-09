@@ -1,6 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 function BookingSection() {
+ 
 const container = {
   hidden: { opacity: 0 },
   show: {
@@ -20,6 +22,7 @@ const item = {
     transition: { duration: 0.7, ease: "easeOut" },
   },
 }
+
 
   return (
     <motion.div
@@ -46,10 +49,10 @@ const item = {
           <motion.div
           variants={item}
           className="flex flex-col gap-2 text-white">
-            <label className="text-sm text-gray-300">Arrival</label>
+            <label className="text-base text-gray-300">Arrival</label>
             <input
               type="date"
-              className="rounded-lg bg-transparent border border-gray-500 px-4 py-2 text-gray-200 focus:border-amber-400 focus:outline-none [color-scheme:dark]"
+              className="rounded-lg bg-transparent border border-gray-500 px-4 py-2 text-gray-200 text-sm focus:border-amber-400 focus:outline-none [color-scheme:dark]"
             />
           </motion.div>
 
@@ -57,18 +60,18 @@ const item = {
           <motion.div
           variants={item}
           className="flex flex-col gap-2 text-white">
-            <label className="text-sm text-gray-300">Departure</label>
+            <label className="text-base text-gray-300">Departure</label>
             <input
               type="date"
-              className="rounded-lg bg-transparent border border-gray-500 px-4 py-2 text-gray-200 focus:border-amber-400 focus:outline-none [color-scheme:dark]"
+              className="rounded-lg bg-transparent border border-gray-500 px-4 py-2 text-gray-200 focus:border-amber-400 focus:outline-none [color-scheme:dark] text-sm"
             />
           </motion.div>
 
         
           <motion.div variants={item} className="flex flex-col gap-2 text-white">
-            <label className="text-sm text-gray-300">Room Type</label>
+            <label className="text-base text-gray-300">Room Type</label>
             <select 
-            className="rounded-lg bg-[#2b2b2b] border border-gray-500 px-4 py-2 text-gray-200 focus:border-amber-400 focus:outline-none">
+            className="rounded-lg bg-[#2b2b2b] border border-gray-500 px-4 py-2 text-gray-200 text-sm focus:border-amber-400 focus:outline-none">
               <option value=''>Select</option>
               <option value='Single Room'>Single Room</option>
               <option value='Double Room'>Double Room</option>
@@ -78,10 +81,10 @@ const item = {
 
         
           <motion.div variants={item} className="flex flex-col gap-2 text-white">
-            <label className="text-sm text-gray-300">Adults</label>
+            <label className="text-base text-gray-300">Adults</label>
             <select 
             defaultValue=''
-            className="rounded-lg bg-[#2b2b2b] border border-gray-500 px-4 py-2 text-gray-200 focus:border-amber-400 focus:outline-none">
+            className="rounded-lg bg-[#2b2b2b] border border-gray-500 px-4 py-2 text-gray-200 text-sm focus:border-amber-400 focus:outline-none">
                <option value="" disabled>
     Select adults
   </option>
@@ -93,11 +96,12 @@ const item = {
           </motion.div>
 
         
-          <div className="flex">
+         <Link href='/bookform'>
             <button className="w-full rounded-full bg-amber-400 px-8 py-3 font-semibold text-white shadow-lg transition-all duration-300 hover:bg-amber-500 hover:shadow-amber-500/40">
               Book Now
             </button>
-          </div>
+         </Link>
+          
 
         </motion.div>
       </div>

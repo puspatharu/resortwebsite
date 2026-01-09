@@ -1,11 +1,10 @@
-import SingleRoom from '@/component/PageComponent/Singlepage/SingleRoom'
+import BookForm from '@/component/PageComponent/Singlepage/BookForm'
 import React from 'react'
 
 function page() {
-  
   return (
     <div>
-      <SingleRoom />
+      <BookForm />
     </div>
   )
 }

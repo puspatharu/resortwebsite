@@ -44,9 +44,7 @@ const item = {
 <BannerReuse title='about' image={banner} />
 </motion.div>
 
- <motion.div variants={item}>
-<EventSection />
- </motion.div>
+
 
  <motion.div variants={item}>
 <AboutSection />

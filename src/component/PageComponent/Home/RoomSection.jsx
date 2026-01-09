@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useState } from 'react'
 import room1 from '../../../../public/room1.webp'
 import room2 from '../../../../public/room2.webp'
 import room3 from '../../../../public/room3.webp'
@@ -8,33 +8,44 @@ import Image from 'next/image'
 import { CiHeart } from "react-icons/ci";
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import { FaArrowRightLong } from "react-icons/fa6";
 function RoomSection() {
-const room=[
-  {
-    image:room1,
-    name:"Double Deluxe Room",
-    prize:150,
-    id:1
-  },
-   {
-    image:room2,
-     name:"Single Deluxe Room",
-    prize:100,
-    id:2
-  },
+   const [search,setSearch]=useState('');
+ const room=[
     {
-    image:room3,
-     name:"Honeymoon Suit",
-    prize:300,
-    id:3
-  },
-  {
-    image:room4,
-     name:"Economy Double",
-    prize:200,
-    id:4
-  },
-]
+      image:room1,
+      name:"Double Deluxe Room",
+      prize:150,
+      slug:'Double-Deluxe-Room',
+     imagekey:'room1'
+  
+    },
+     {
+      image:room2,
+       name:"Single Deluxe Room",
+      prize:100,
+      slug:'Single-Deluxe-Room',
+    imagekey:"room2"
+   
+    },
+
+      {
+      image:room3,
+       name:"Honeymoon Suit",
+      prize:300,
+      slug:'Honeymoon-Suit',
+       imagekey:'room3'
+    
+    },
+    {
+      image:room4,
+       name:"Economy Double",
+      prize:200,
+      slug:'Economy-Double', 
+      imagekey:'room4'
+    
+    },
+  ]
 
  const container = {
   hidden: { opacity: 0 },
@@ -55,6 +66,9 @@ const item = {
     transition: { duration: 0.7, ease: "easeOut" },
   },
 }
+
+const filterroom=room.filter((item)=>item.name.toLowerCase().includes(search.toLowerCase()));
+
   return (
     <div className='flex flex-col gap-16 lg:px-18 px-6'>
       <motion.div
@@ -71,6 +85,12 @@ const item = {
       className='text-base text-gray-400'>We all live in an age that belongs to the young at heart.Life that is becoming extremely fast,</motion.div>
       </motion.div>
 
+      <motion.input variants={item} className='border border-gray-400 shadow-md px-4 py-5 rounded-full outline-none placeholder:text-gray-400' placeholder='search room...'
+            value={search}
+            onChange={(e)=>setSearch(e.target.value)}
+            />
+           
+
       <motion.div
       variants={container}
       initial='hidden'
@@ -78,28 +98,49 @@ const item = {
         viewport={{ once: true }}
       className='grid lg:grid-cols-4 gap-8 grid-cols-2 '>
 {
-  room.map((val,i)=>{
+  filterroom.length>0 ?(
+  filterroom.map((val,i)=>{
 return(
   <motion.div variants={item} key={i} className='flex flex-col gap-4'>
 <div className='relative group overflow-hidden'>
     <Image src={val.image} alt="image" className='transition-transform duration-500 hover:scale-110 overflow-clip' />
-    <Link href={`/singleroom/${val.id}`}>
+<Link href={{
+  pathname:'/singlebooking',
+  query:{
+    room:val.slug,
+    name:val.name,
+    price:val.prize,
+    image:val.imagekey
+  },
+}}
+
+>
     <button className='text-white absolute  bg-amber-400 hover:bg-amber-500 transition opacity-0 group-hover:opacity-100 duration-300 bottom-5 left-4 ease-in-out px-3 py-1.5  rounded w-fit'>Book Now</button>
-    </Link>
+</Link>
+   
   <div className='bg-black/30 absolute top-4 flex gap-2 right-4 px-2 py-1.5 rounded'>
     <div className='text-white text-sm'>223</div>
     <div className='text-white font-semi-bold'><CiHeart /></div>
   </div>
 </div>
-    <div className=''>
+    <div className='flex flex-col gap-1'>
     <div className='text-base font-semibold'>{val.name}</div>
     <div className='text-[#52c5fd] '> <span className='text-xl font-semibold'>${val.prize}</span>/night</div>
+    <Link href={`/room/${val.slug}`}>
+    <div className='flex gap-1 items-center text-[16px] text-amber-500'>
+      <div>Read More</div>
+      <div className='text-[12px]'>< FaArrowRightLong /></div>
+
+    </div>
+    </Link>
     </div>
    
      
     </motion.div>
 )
-  })
+  })):(
+    <div>room not found</div>
+  )
 }
       </motion.div>
 

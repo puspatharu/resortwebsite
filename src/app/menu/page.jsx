@@ -1,9 +1,9 @@
 'use client'
 import BannerReuse from '@/component/ui/BannerReuse'
 import React from 'react'
-import banner from '../../../public/hero-bg.jpg'
+import banner from '../../../public/party.jpg'
 import MenuDetail from '@/component/PageComponent/Menu/MenuDetail'
-import DessertDetail from '@/component/PageComponent/Menu/DessertDetail'
+
 import { motion } from 'framer-motion'
 function page() {
    const container = {
@@ -35,7 +35,7 @@ const item = {
         initial="hidden"
          whileInView="show"
         viewport={{ once: true, margin: "-100px" }}
-    className='flex flex-col lg:gap-20 gap-6'>
+    className='flex flex-col  gap-16'>
       <motion.div variants={item}>
       <BannerReuse title="Menu" image={banner} />
       </motion.div>
@@ -43,10 +43,6 @@ const item = {
      <motion.div variants={item}>
 
       <MenuDetail />
-     </motion.div>
-
-     <motion.div variants={item}>
-      <DessertDetail />
      </motion.div>
      
     </motion.div>

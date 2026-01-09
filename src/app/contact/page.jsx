@@ -4,7 +4,7 @@ import BannerReuse from '@/component/ui/BannerReuse'
 import ContactSection from '@/component/PageComponent/Contact/ContactSection'
 function page() {
   return (
-    <div className='flex flex-col gap-18'>
+    <div className='flex flex-col gap-18 pb-12'>
 <BannerReuse title="Contact" image={banner} />
 <ContactSection />
  <div style={{ width: '100%', height: '450px' }}>

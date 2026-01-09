@@ -17,6 +17,7 @@ const [menuOpen,setMenuOpen]=useState(false)
   const nav = [
     { name: 'home', link: '/' },
     { name: 'about', link: '/about' },
+     { name: 'event', link: '/event' },
     { name: 'menu', link: '/menu' },
      { name: 'room', link: '/room' },
     { name: 'gallery', link: '/gallery' },
@@ -46,13 +47,13 @@ const [menuOpen,setMenuOpen]=useState(false)
       </div>
 
      
-      <div className="lg:flex hidden capitalize gap-4 items-center">
+      <div className="lg:flex hidden capitalize gap-6 items-center">
         {nav.map((val, i) => (
           <Link href={val.link} key={i}>
             <div
               className={`
                 font-semibold cursor-pointer
-                transition-colors duration-400
+                transition-colors duration-400  hover:text-amber-500
                 ${isScrolled ? 'text-black' : 'text-white'}
               `}
             >
@@ -97,7 +98,7 @@ const [menuOpen,setMenuOpen]=useState(false)
     hover:bg-amber-500
     transition-all duration-300
     shadow-md hover:shadow-amber-500/40
-            ${isScrolled ? 'text-black' : 'text-white'}
+            ${isScrolled ? 'text-white' : 'text-white'}
           `}
         >
           Book Now

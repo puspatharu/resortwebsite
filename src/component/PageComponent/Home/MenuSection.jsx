@@ -39,6 +39,8 @@ function MenuSection() {
     { prize: 10, name: "strawberry drink", description: "Fresh strawberry juice.", image: stw, category: "drink" },
   ]
 
+
+
   const filteredMenu = menu.filter(item => item.category === activeCategory)
 
   return (
@@ -65,7 +67,7 @@ function MenuSection() {
         </div>
 
        
-        <div className="flex justify-center gap-6 text-white font-semibold mb-12">
+        <div className="flex justify-center text-xl gap-6 text-white font-semibold mb-12">
           {["food", "dessert", "drink"].map(cat => (
             <button
               key={cat}
@@ -95,14 +97,14 @@ function MenuSection() {
 
               <div>
                 <div className="flex  gap-6">
-                  <h3 className="text-white text-[18px] font-semibold capitalize">
+                  <h3 className="text-white text-xl font-semibold capitalize">
                     {val.name}
                   </h3>
                   <span className="text-amber-500 font-semibold">
                     ${val.prize}
                   </span>
                 </div>
-                <p className="text-gray-300 text-sm mt-1">
+                <p className="text-gray-300 text-base mt-1">
                   {val.description}
                 </p>
               </div>
