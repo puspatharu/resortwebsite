@@ -1,7 +1,7 @@
 'use client'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { Suspense } from 'react'
 import image from '../../../../public/room1.webp'
 import { IoCarSport } from "react-icons/io5";
 import { TbMassage } from "react-icons/tb";
@@ -13,7 +13,8 @@ import room1 from '../../../../public/room1.webp'
 import room2 from '../../../../public/room2.webp'
 import room3 from '../../../../public/room3.webp'
 import room4 from '../../../../public/room4.webp'
-function SingleBooking() {
+
+function SingleBookingContext() {
   const searchParams=useSearchParams()
    const roomSlug = searchParams.get('room')
   const roomName = searchParams.get('name')
@@ -223,4 +224,8 @@ return(
   )
 }
 
-export default SingleBooking
+export default function SingleBooking(){
+  <Suspense fallback={<div className="pt-24 text-center">Loading...</div>}>
+<SingleBookingContext />
+  </Suspense>
+}

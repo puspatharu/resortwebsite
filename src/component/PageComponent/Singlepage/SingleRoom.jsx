@@ -21,6 +21,7 @@ import { LuCoffee } from "react-icons/lu";
 import { FaGlassMartini,FaSwimmingPool,FaTv,FaWifi } from "react-icons/fa";
 import { MdPeople } from "react-icons/md";
 import { PiResize } from "react-icons/pi";
+
 function SingleRoom() {
   const { slug } = useParams();
  const room=[
@@ -189,13 +190,13 @@ logoname:'Coffee Machine',
 
 
 
+const roomdata = room.find((item)=> item.slug ===slug);
 
-   const roomdata = room.find((item)=> item.slug ===slug);
-
-  if (!roomdata) {
-    return <div className="p-10 text-center">Blog not found</div>;
-  }
-  return (
+if (!roomdata) {
+  return <div className="p-10 text-center">Blog not found</div>;
+}
+// const rating = Math.min(Math.max(Number(roomdata.rating) || 0, 0), 5);
+return (
     <div className='flex mt-23 mb-12 flex-col  lg:px-20 px-4 gap-10 '>
   <Link href='/'>
 <div className='flex  gap-2 items-center text-amber-600'>
@@ -217,13 +218,13 @@ logoname:'Coffee Machine',
       <div className='flex  lg:w-6/12 border border-gray-200 shadow-lg p-6 flex-col gap-7'>
         <div className='flex items-center gap-5'>
           <div className='bg-[#52c5fd] text-base font-medium px-4 py-1.5 rounded text-white'>{roomdata.rating}</div>
-           <div className="flex gap-2 text-yellow-400 mb-3">
-                            {Array(roomdata.rating)
-                              .fill(0)
-                              .map((a, i) => (
-                                <FaStar key={i} />
-                              ))}
-                          </div>
+        {/* <div className="flex gap-2 text-yellow-400 mb-3">
+  {Array(rating)
+    .fill(0)
+    .map((_, i) => (
+      <FaStar key={i} />
+    ))}
+</div> */}
                           <div className='text-gray-500'>(
                             <span className='text-gray-500'>
                               {roomdata.reviews}

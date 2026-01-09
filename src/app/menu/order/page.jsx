@@ -1,12 +1,9 @@
+"use client";
 
+export const dynamic = "force-dynamic";
 
 import SingleOrder from '@/component/PageComponent/Singlepage/SingleOrder'
-import React from 'react'
 
-function page() {
-  return (
-    <div><SingleOrder /></div>
-  )
+export default function Page() {
+  return <SingleOrder />
 }
-
-export default page
