@@ -7,6 +7,7 @@ import FeatureSection from '@/component/PageComponent/Home/FeatureSection'
 import ReviewSection from '@/component/PageComponent/Home/ReviewSection'
 import EventSection from '@/component/PageComponent/About/EventSection'
 import { motion } from 'framer-motion'
+import SingleBooking from '@/component/PageComponent/Singlepage/SingleBooking'
 function page() {
   const container = {
   hidden: {},
@@ -58,6 +59,8 @@ const item = {
 <ReviewSection />
  </motion.div>
     </motion.div>
+
+   
   )
 }
 

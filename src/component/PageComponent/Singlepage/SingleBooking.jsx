@@ -57,7 +57,7 @@ const selectedImage = imageMap[roomImageKey] || room1
   return (
     <div className='lg:px-20 px-6 pt-24 flex flex-col pb-12 gap-12 '>
        <Link href='/'>
-<div className='flex gap-2 items-center text-amber-600'>
+<div className='flex gap-2 items-center mt-8 text-amber-600'>
 <FaArrowLeftLong />
         <div>Back to Home</div>
       </div>
@@ -225,7 +225,9 @@ return(
 }
 
 export default function SingleBooking(){
+  return(
   <Suspense fallback={<div className="pt-24 text-center">Loading...</div>}>
 <SingleBookingContext />
   </Suspense>
+  )
 }

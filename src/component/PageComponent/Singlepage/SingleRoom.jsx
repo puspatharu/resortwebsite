@@ -195,11 +195,11 @@ const roomdata = room.find((item)=> item.slug ===slug);
 if (!roomdata) {
   return <div className="p-10 text-center">Blog not found</div>;
 }
-// const rating = Math.min(Math.max(Number(roomdata.rating) || 0, 0), 5);
+
 return (
     <div className='flex mt-23 mb-12 flex-col  lg:px-20 px-4 gap-10 '>
   <Link href='/'>
-<div className='flex  gap-2 items-center text-amber-600'>
+<div className='flex mt-8  gap-2 items-center text-amber-600'>
 <FaArrowLeftLong />
         <div>Back to Home</div>
       </div>
@@ -219,10 +219,10 @@ return (
         <div className='flex items-center gap-5'>
           <div className='bg-[#52c5fd] text-base font-medium px-4 py-1.5 rounded text-white'>{roomdata.rating}</div>
         {/* <div className="flex gap-2 text-yellow-400 mb-3">
-  {Array(rating)
+  {Array(roomdata.rating)
     .fill(0)
-    .map((_, i) => (
-      <FaStar key={i} />
+    .map((_, sd) => (
+      <FaStar key={sd} />
     ))}
 </div> */}
                           <div className='text-gray-500'>(
@@ -291,7 +291,7 @@ return (
       </p>
       </div>
       <div className='border rounded-3xl border-gray-200 border-l-6 border-l-[#52c5fd] shadow-md flex flex-col gap-4 w-full px-3 py-6'>
-<div className='bg-[#52c5fd] p-3 w-fit flex items-center  text-white rounded-full'><CiStar className='text-2xl' /></div>
+<div className='bg-[#52c5fd] p-2 w-fit flex items-center  text-white rounded-full'><CiStar className='text-xl' /></div>
 <div className='text-2xl font-medium'>Premium Experience</div>
 <div className='text-gray-500 text-sm'>The most beautiful suite we've ever stayed in. The ocean view is absolutely breathtaking and the attention to detail is remarkable.</div>
 

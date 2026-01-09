@@ -42,7 +42,7 @@ function SingleOrderContent() {
   return (
     <div className="pt-24 py-6 px-6 lg:px-20 w-11/12 mx-auto">
       <Link href="/menu">
-        <div className="flex gap-2 items-center text-amber-600 mb-8">
+        <div className="flex gap-2 mt-8 items-center text-amber-600 mb-8">
           <FaArrowLeftLong />
           <div>Back to Menu</div>
         </div>

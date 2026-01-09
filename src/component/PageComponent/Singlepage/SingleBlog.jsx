@@ -48,16 +48,16 @@ const blog=[
     <div className='mt-25 px-6 lg:px-20'>
      
      
-  <div className="bg-gray-50 min-h-screen">
-    <div className="relative rounded-2xl  h-[60vh] w-full">
+  <div className="bg-gray-50  min-h-screen">
+    <div className="relative rounded-2xl overflow-hidden  h-[60vh] w-full">
       <Image
         src={blogdata.image}
         alt={blogdata.title}
         fill
         priority
-        className="object-cover"
+        className="object-cover rounded-2xl"
       />
-      <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+      <div className="absolute inset-0 rounded-2xl bg-black/50 flex items-center justify-center">
         <h1 className="text-white text-3xl lg:text-5xl font-bold text-center px-6">
           {blogdata.title}
         </h1>
@@ -78,7 +78,7 @@ const blog=[
 
       <p className="text-gray-600 leading-relaxed mt-6">
         Our resort offers a peaceful escape where nature, comfort, and luxury
-        come together. Whether it’s relaxing under the sun, enjoying wellness
+        come together. Whether its relaxing under the sun, enjoying wellness
         experiences, or discovering mindful living, every moment here is
         designed for rejuvenation.
       </p>

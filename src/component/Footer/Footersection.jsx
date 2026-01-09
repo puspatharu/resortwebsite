@@ -48,7 +48,7 @@ function Footersection() {
         </div>
 
       </div>
-      <div className='border border-gray-300 lg:w-11/12 w-10/12 mx-auto'></div>
+      <div className='border border-gray-300 lg:w-11/12 w-10/12 mx-auto my-2'></div>
       <div className='text-[#797878] lg:w-6/12 w-11/12 mx-auto gap-1 flex items-center text-center'>Copyright ©2025 All rights reserved | This template is made with <span className=''><FaHeart className='text-red-600' /></span> by <span className='text-[#797878] hover:text-white'>Puspa</span></div>
     </div>
   )

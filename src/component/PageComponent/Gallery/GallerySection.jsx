@@ -36,7 +36,7 @@ ${i==3 || i==4 ||i==7||i==10?'row-span-2':''}
   
 <Image src={val} alt='' height={300} width={300} className='object-cover group-hover:scale-110 group-hover:rotate-2 duration-500 transition-transform w-full h-full '/>
 
-   <div className='absolute inset-0 items-center flex flex-col gap-2 justify-center px-2 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity  duration-400'>
+   <div className='absolute inset-0 items-center flex flex-col gap-2 justify-center px-2 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity  duration-400'>
          <div className='text-amber-400 hover:text-white transition-transform  hover:-translate-y-0.5 duration-300 '><FaFacebookF /></div>
          <div className=' text-amber-400 hover:text-white transition-transform  hover:-translate-y-0.5 duration-300'><FaTwitter /></div>
          <div className='text-amber-400  hover:text-white transition-transform  hover:-translate-y-0.5 duration-300'><FaInstagram /></div>

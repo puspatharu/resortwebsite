@@ -129,7 +129,7 @@ const menu = [
 )
 
   return (
-    <div className="px-6 lg:px-20 py-16">
+    <div className="px-6 lg:px-20 mb-12">
 
     
       <motion.div
@@ -208,7 +208,7 @@ const menu = [
 
          
             <div className="p-5 flex flex-col gap-3">
-              <h3 className="text-xl font-semibold">{val.name}</h3>
+              <h3 className="text-base font-semibold">{val.name}</h3>
 
               <p className="text-gray-500 text-sm">
                {val.description}
@@ -231,7 +231,7 @@ const menu = [
     },
   }}>
               <button
-                className="mt-3 flex items-center justify-center gap-2 w-full bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-500 hover:to-amber-600 text-white py-2.5 rounded-full font-medium transition-all duration-300 shadow hover:shadow-amber-500/40"
+                className="mt-3 w-fit flex items-center justify-center gap-2 px-3 bg-amber-500 text-white py-2 rounded-full font-medium transition-all duration-300 shadow hover:shadow-amber-500/40"
               >
                 <FaShoppingCart />
                 Take an Order

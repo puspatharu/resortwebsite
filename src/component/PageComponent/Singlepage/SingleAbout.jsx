@@ -30,7 +30,7 @@ image:location,
   ]
   return (
     <div className="mt-18 py-12 px-6 lg:px-20">
-      <Link href="/about" className="flex gap-2 items-center text-amber-600">
+      <Link href="/about" className="flex gap-2 mt-8 items-center text-amber-600">
         <FaArrowLeftLong />
         <span>Back to About</span>
       </Link>
@@ -127,9 +127,9 @@ image:location,
 facility.map((val,i)=>{
   return(
 
-<div key={i} className='flex flex-col gap-3'>
-  <div className='relative overflow-hidden'>
-<Image src={val.image} alt="" className='object-cover rounded-2xl transition duration-300 hover:scale-110' />
+<div key={i} className='flex flex-col  gap-3'>
+  <div className='relative rounded-2xl overflow-hidden'>
+<Image src={val.image} alt="" className='object-cover overflow-hidden rounded-2xl transition duration-300 hover:scale-110' />
     </div>
 <div className='text-xl font-semibold'>{val.title}</div>
 <div className='text-gray-400'>{val.description}</div>
@@ -142,12 +142,6 @@ facility.map((val,i)=>{
 </div>
 
 </div>
-
-   
-      
-        
-      
-
     </div>
   )
 }

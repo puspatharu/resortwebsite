@@ -5,7 +5,7 @@ function BookForm() {
   return (
    <div className='pt-24 pb-18 px-6 lg:px-20'>
     <Link href='/'>
-<div className='flex gap-2 items-center text-amber-600'>
+<div className='flex gap-2 items-center mt-8 text-amber-600'>
 <FaArrowLeftLong />
         <div>Back to Home</div>
       </div>

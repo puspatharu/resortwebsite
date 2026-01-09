@@ -73,7 +73,7 @@ transition:{
         variants={item}
         className='text-2xl font-semibold'>Latest News And Event</motion.div>
       </motion.div>
-      <motion.input variants={item} className='border border-gray-400 shadow-md px-4 py-5 rounded-full outline-none placeholder:text-gray-400' placeholder='search blog...'
+      <motion.input variants={item} className='border border-gray-400 shadow-md px-4 py-4 rounded-full outline-none placeholder:text-gray-400' placeholder='search blog...'
       value={search}
       onChange={(e)=>setSearch(e.target.value)}
       />

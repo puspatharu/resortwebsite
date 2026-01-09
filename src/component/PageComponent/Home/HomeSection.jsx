@@ -43,7 +43,7 @@ const item = {
       <Image src='/hero-bg.jpg' fill
           priority alt='image' className='object-cover'/>
       </motion.div>
-<div className='absolute top-0 left-0 right-0 lg:h-lvh h-screen  w-full  bg-black/40'></div>
+<div className='absolute top-0 left-0 right-0 lg:h-lvh h-screen  w-full  bg-black/20'></div>
 
      <motion.div   
       variants={container}

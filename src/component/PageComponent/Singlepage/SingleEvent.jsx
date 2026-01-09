@@ -66,7 +66,7 @@ const eventdata=event.find((item)=>item.slug===slug)
   return (
     <div className='pt-24 px-6 pb-16 lg:px-20'>
          <Link href='/event'>
-<div className='flex gap-2 items-center text-amber-600 mb-8'>
+<div className='flex gap-2 items-center mt-8 text-amber-600 mb-8'>
 <FaArrowLeftLong />
         <div>Back to Event</div>
       </div>

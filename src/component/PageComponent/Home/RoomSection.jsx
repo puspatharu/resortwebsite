@@ -37,14 +37,14 @@ function RoomSection() {
        imagekey:'room3'
     
     },
-    {
-      image:room4,
-       name:"Economy Double",
-      prize:200,
-      slug:'Economy-Double', 
-      imagekey:'room4'
+    // {
+    //   image:room4,
+    //    name:"Economy Double",
+    //   prize:200,
+    //   slug:'Economy-Double', 
+    //   imagekey:'room4'
     
-    },
+    // },
   ]
 
  const container = {
@@ -85,7 +85,7 @@ const filterroom=room.filter((item)=>item.name.toLowerCase().includes(search.toL
       className='text-base text-gray-400'>We all live in an age that belongs to the young at heart.Life that is becoming extremely fast,</motion.div>
       </motion.div>
 
-      <motion.input variants={item} className='border border-gray-400 shadow-md px-4 py-5 rounded-full outline-none placeholder:text-gray-400' placeholder='search room...'
+      <motion.input variants={item} className='border border-gray-400 shadow-md px-4 py-4 rounded-full outline-none placeholder:text-gray-400' placeholder='search room...'
             value={search}
             onChange={(e)=>setSearch(e.target.value)}
             />
@@ -96,14 +96,14 @@ const filterroom=room.filter((item)=>item.name.toLowerCase().includes(search.toL
       initial='hidden'
         whileInView="show"
         viewport={{ once: true }}
-      className='grid lg:grid-cols-4 gap-8 grid-cols-2 '>
+      className='grid lg:grid-cols-3 gap-12 md:grid-cols-2 '>
 {
   filterroom.length>0 ?(
   filterroom.map((val,i)=>{
 return(
   <motion.div variants={item} key={i} className='flex flex-col gap-4'>
-<div className='relative group overflow-hidden'>
-    <Image src={val.image} alt="image" className='transition-transform duration-500 hover:scale-110 overflow-clip' />
+<div className='relative group rounded-2xl overflow-hidden'>
+    <Image src={val.image} alt="image" className='transition-transform h-full w-full duration-500 hover:scale-110 overflow-clip' />
 <Link href={{
   pathname:'/singlebooking',
   query:{

@@ -86,25 +86,25 @@ function PackageSection() {
           <motion.div
             key={i}
             variants={card}
-            className="group bg-white rounded-3xl p-8 shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+            className="group bg-white rounded-3xl px-6 py-4 shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
           >
            
-            <div className="w-14 h-14 flex items-center justify-center rounded-full bg-gradient-to-r from-amber-400 to-amber-500 text-white text-2xl mb-6">
+            <div className="w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-r from-amber-400 to-amber-500 text-white text-2xl mb-6">
               {item.icon}
             </div>
 
          
-            <h3 className="text-2xl font-semibold mb-3">{item.title}</h3>
+            <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
 
            
-            <p className="text-gray-600 mb-5">{item.description}</p>
+            <p className="text-gray-600 text-sm mb-3">{item.description}</p>
 
           
-            <div className="flex flex-wrap gap-3 mb-6">
+            <div className="flex flex-wrap gap-3 mb-2">
               {item.facilities.map((fac, idx) => (
                 <span
                   key={idx}
-                  className="px-4 py-1.5 text-sm rounded-full bg-amber-100 text-amber-700"
+                  className="px-2 py-1.5 text-sm rounded-full bg-amber-100 text-amber-700"
                 >
                   {fac}
                 </span>
@@ -113,14 +113,14 @@ function PackageSection() {
 
             <div className="mb-6">
               <span className="text-gray-500">Starting from</span>
-              <div className="text-3xl font-bold text-amber-500">
+              <div className="text-xl font-bold text-amber-500">
                 ${item.price}
                 <span className="text-base font-medium text-gray-500"> / person</span>
               </div>
             </div>
 
           
-            <button className=" py-3 rounded-full bg-amber-400 text-white font-semibold px-8 transition hover:bg-amber-500 hover:shadow-amber-500/40 w-fit">
+            <button className=" py-2 rounded-full bg-amber-400 text-white font-semibold px-3 transition hover:bg-amber-500 hover:shadow-amber-500/40 w-fit">
               Learn More
             </button>
           </motion.div>

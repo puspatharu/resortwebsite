@@ -32,7 +32,7 @@ export default function SingleHomepage() {
 <div className="pt-24 pb-16 px-6 lg:px-20 bg-gray-50">
 
      
-      <Link href="/" className="flex gap-2 items-center text-amber-600 mb-10">
+      <Link href="/" className="flex gap-2 mt-8 items-center text-amber-600 mb-10">
         <FaArrowLeftLong />
         <span>Back to Home</span>
       </Link>
@@ -75,8 +75,8 @@ export default function SingleHomepage() {
 
       </div>
 
-      {/* EXPERIENCE STRIP */}
-      <div className="bg-amber-400 rounded-3xl px-8 py-14 text-center text-white mb-20">
+     
+      <div className="bg-amber-400/50 rounded-3xl px-8 py-14 text-center text-white mb-20">
         <h2 className="text-3xl font-bold mb-4">
           Experience Luxury Like Never Before
         </h2>
@@ -86,7 +86,7 @@ export default function SingleHomepage() {
         </p>
       </div>
 
-      {/* CTA */}
+ 
       <div className="text-center">
         <Link href="/bookform">
           <button className="bg-amber-400 hover:bg-amber-500 text-white px-10 py-4 rounded-full font-semibold transition shadow-lg hover:shadow-amber-500/40">
