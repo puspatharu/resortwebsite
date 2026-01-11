@@ -10,6 +10,7 @@ import { motion } from 'framer-motion'
 import ReviewSection from '@/component/PageComponent/Home/ReviewSection'
 import BlogSection from '@/component/PageComponent/Home/BlogSection'
 import FAQSection from '@/component/PageComponent/Home/FAQSection'
+import CounterSection from '@/component/PageComponent/Home/CounterSection'
 const container = {
   hidden: {},
   show: {
@@ -77,6 +78,10 @@ function page() {
 
       <motion.div variants={item}>
               <BlogSection />
+      </motion.div>
+
+      <motion.div variants={item}>
+              <CounterSection />
       </motion.div>
 
       <motion.div variants={item}>

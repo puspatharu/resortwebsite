@@ -6,14 +6,17 @@ function Footersection() {
       <div className='grid lg:grid-cols-4 gap-20 lg:px-18 px-6 '>
         <div className='flex flex-col gap-3'>
           <div className='text-white text-xl'>About Us</div>
-          <p className='text-[#797878] text-base leading-6'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque facere laudantium magnam voluptatum autem. Amet aliquid nesciunt veritatis aliquam.</p>
+          <p className='text-[#797878] text-base leading-6'>At  Resort, we combine luxury, comfort, and nature to create an unforgettable experience. Discover how our journey started and what 
+          drives us to provide the best for our guests.</p>
         </div>
         <div className='flex flex-col gap-3'>
           <div className='text-white text-xl'>Quick Links</div>
           <div className='text-[#797878] text-base flex flex-col gap-1'>
             <p className='hover:text-white'>About Us</p>
             <p className='hover:text-white'>Menu</p>
-            <p className='hover:text-white'>Team</p>
+          <p className='hover:text-white'>Room</p>
+          <p className='hover:text-white'>Event</p>
+          <p className='hover:text-white'>Gallery</p>
             <p className='hover:text-white'>Contact Us</p>
           </div>
         </div>

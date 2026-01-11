@@ -9,6 +9,7 @@ import Image from 'next/image'
 import { FaArrowRightLong } from "react-icons/fa6";
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+
 function BlogSection() {
   const [search,setSearch]=useState('');
 const blog=[
@@ -119,6 +120,9 @@ return(
  
 
       </motion.div>
+
+     
+
     </div>
   )
 }

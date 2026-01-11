@@ -1,10 +1,12 @@
 'use client'
-import React from 'react'
+import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { CiHeart, CiStar } from "react-icons/ci"
 import { MdPeople } from "react-icons/md"
 
 function PackageSection() {
+  const [selectedPackage, setSelectedPackage] = useState(null)
+
   const packages = [
     {
       title: 'Corporate Meetings',
@@ -120,12 +122,68 @@ function PackageSection() {
             </div>
 
           
-            <button className=" py-2 rounded-full bg-amber-400 text-white font-semibold px-3 transition hover:bg-amber-500 hover:shadow-amber-500/40 w-fit">
+            <button onClick={()=>setSelectedPackage(item)} className=" py-2 px-4 rounded-full bg-sky-500 text-white font-semibold transition hover:bg-sky-600">
               Learn More
             </button>
           </motion.div>
         ))}
       </motion.div>
+
+{selectedPackage && (
+  <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4">
+    <motion.div
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      className="bg-white rounded-3xl max-w-md w-full p-6 shadow-xl"
+    >
+     
+      <div className="flex justify-between items-start mb-4">
+        <h3 className="text-2xl font-bold">
+          {selectedPackage.title}
+        </h3>
+        <button
+          onClick={() => setSelectedPackage(null)}
+          className="text-gray-400 hover:text-gray-600"
+        >
+          ✕
+        </button>
+      </div>
+
+     
+      <p className="text-gray-600 mb-4">
+        {selectedPackage.description}
+      </p>
+
+    
+      <div className="mb-4">
+        <h4 className="font-semibold mb-2">Included Facilities</h4>
+        <ul className="list-disc list-inside text-gray-600 text-sm space-y-1">
+          {selectedPackage.facilities.map((f, i) => (
+            <li key={i}>{f}</li>
+          ))}
+        </ul>
+      </div>
+
+      
+      <div className="mb-6">
+        <span className="text-gray-500">Starting from</span>
+        <div className="text-2xl font-bold text-amber-600">
+          ${selectedPackage.price}
+          <span className="text-base font-medium text-gray-500">
+            {" "} / person
+          </span>
+        </div>
+      </div>
+
+    
+      <button className="w-full py-3 rounded-full bg-sky-500 text-white font-semibold hover:bg-sky-600">
+        Book This Package
+      </button>
+    </motion.div>
+  </div>
+)}
+
+
     </div>
   )
 }
